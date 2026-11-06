@@ -1,4 +1,4 @@
 import './js/common';
-import { initCategories } from './js/categories';
+import { initCatalog } from './js/catalog';
 
-initCategories();
+initCatalog();

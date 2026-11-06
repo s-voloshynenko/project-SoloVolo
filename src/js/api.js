@@ -20,3 +20,23 @@ export async function getFilters({ filter, page = 1, limit = 12 }) {
   });
   return data;
 }
+
+const FILTER_PARAMS = {
+  Muscles: 'muscles',
+  'Body parts': 'bodypart',
+  Equipment: 'equipment',
+};
+
+export async function getExercises({
+  filter,
+  category,
+  keyword,
+  page = 1,
+  limit = 10,
+}) {
+  const params = { [FILTER_PARAMS[filter]]: category, page, limit };
+  if (keyword) params.keyword = keyword;
+
+  const { data } = await api.get('/exercises', { params });
+  return data;
+}
