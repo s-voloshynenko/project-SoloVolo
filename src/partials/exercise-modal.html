@@ -1,0 +1,74 @@
+<div class="modal-backdrop" data-exercise-backdrop>
+  <div class="modal exercise-modal" role="dialog" aria-modal="true" aria-labelledby="exercise-modal-title">
+    <button class="modal-close" type="button" aria-label="Close" data-exercise-close>
+      <svg class="icon" aria-hidden="true"><use href="./images/icons.svg#icon-close-menu"></use></svg>
+    </button>
+
+    <div class="exercise-modal-body">
+      <div class="exercise-media" data-exercise-media></div>
+
+      <div class="exercise-info">
+        <h2 class="exercise-modal-title" id="exercise-modal-title" data-exercise-name></h2>
+
+        <div class="rating rating-dark">
+          <span class="rating-value">
+            <span data-exercise-rating></span><span class="visually-hidden"> out of 5</span>
+          </span>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="./images/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="./images/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="./images/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="./images/icons.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="./images/icons.svg#icon-star"></use>
+          </svg>
+        </div>
+
+        <ul class="exercise-stats">
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Target</span>
+            <span class="exercise-stat-value" data-exercise-target></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Body Part</span>
+            <span class="exercise-stat-value" data-exercise-bodypart></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Equipment</span>
+            <span class="exercise-stat-value" data-exercise-equipment></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Popular</span>
+            <span class="exercise-stat-value" data-exercise-popularity></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Burned calories</span>
+            <span class="exercise-stat-value is-plain" data-exercise-calories></span>
+          </li>
+        </ul>
+
+        <p class="exercise-description" data-exercise-description></p>
+
+        <div class="exercise-actions">
+          <button class="btn btn-filled" type="button" data-favorite-toggle>
+            <span data-favorite-label>Add to favorites</span>
+            <svg class="icon" aria-hidden="true" data-favorite-add>
+              <use href="./images/icons.svg#icon-heart"></use>
+            </svg>
+            <svg class="icon" aria-hidden="true" data-favorite-remove hidden>
+              <use href="./images/icons.svg#icon-trash"></use>
+            </svg>
+          </button>
+          <button class="btn btn-outline" type="button" data-rating-open hidden>Give a rating</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

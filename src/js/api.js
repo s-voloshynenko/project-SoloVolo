@@ -40,3 +40,8 @@ export async function getExercises({
   const { data } = await api.get('/exercises', { params });
   return data;
 }
+
+export async function getExerciseById(id) {
+  const { data } = await api.get(`/exercises/${id}`);
+  return data;
+}
