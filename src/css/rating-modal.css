@@ -1,0 +1,139 @@
+.rating-modal .modal-close {
+  z-index: 1;
+}
+
+.rating-form {
+  display: flex;
+  flex-direction: column;
+  padding: 40px 20px;
+}
+
+.rating-fieldset {
+  margin: 0;
+  padding: 0;
+  border: none;
+}
+
+.rating-legend {
+  padding: 0;
+  font-size: 12px;
+  line-height: 1.5;
+  color: rgba(244, 244, 244, 0.4);
+}
+
+.rating-picker {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-top: 8px;
+}
+
+.rating-picker-value {
+  min-width: 19px;
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.rating-stars {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+  gap: 2px;
+}
+
+.rating-star-label {
+  display: flex;
+  color: rgba(244, 244, 244, 0.2);
+  cursor: pointer;
+  transition: color var(--transition);
+}
+
+.rating-star-label .icon {
+  width: 24px;
+  height: 24px;
+}
+
+.rating-stars input:checked ~ .rating-star-label,
+.rating-stars .rating-star-label:hover,
+.rating-stars .rating-star-label:hover ~ .rating-star-label {
+  color: var(--color-accent);
+}
+
+.rating-stars input:focus-visible + .rating-star-label {
+  outline: 1px solid var(--color-light);
+  outline-offset: 2px;
+  border-radius: 2px;
+}
+
+.rating-input {
+  width: 100%;
+  height: 42px;
+  margin-top: 20px;
+  padding: 12px 14px;
+  font: inherit;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--color-light);
+  background-color: transparent;
+  border: 1px solid var(--color-light);
+  border-radius: var(--radius-pill);
+  outline: none;
+  transition: border-color var(--transition);
+}
+
+.rating-input::placeholder {
+  color: rgba(244, 244, 244, 0.6);
+}
+
+.rating-input:focus {
+  border-color: var(--color-accent);
+}
+
+.rating-textarea {
+  height: 93px;
+  margin-top: 10px;
+  border-radius: 15px;
+  resize: none;
+}
+
+.rating-submit {
+  width: 100%;
+  min-height: 42px;
+  margin-top: 20px;
+  font-size: 14px;
+  line-height: 1.29;
+}
+
+.rating-submit:disabled {
+  opacity: 0.6;
+  cursor: default;
+}
+
+@media screen and (min-width: 768px) {
+  .rating-modal {
+    max-width: 430px;
+  }
+
+  .rating-form {
+    padding: 40px;
+  }
+
+  .rating-input {
+    height: 48px;
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+
+  .rating-textarea {
+    height: 105px;
+    margin-top: 16px;
+  }
+
+  .rating-submit {
+    min-height: 48px;
+    margin-top: 32px;
+    font-size: 16px;
+    line-height: 1.5;
+  }
+}
