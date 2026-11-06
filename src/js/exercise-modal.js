@@ -31,13 +31,14 @@ function favoriteButton(id) {
 }
 
 function render(data) {
-  const rating = Number(data.rating);
+  const rating = Number(data.rating).toFixed(1);
   refs.content.innerHTML = `
     <img class="exercise-gif" src="${data.gifUrl}" alt="${data.name} exercise" width="270" height="259" />
     <div class="exercise-info">
       <h2 class="exercise-modal-title" id="exercise-modal-title">${data.name}</h2>
-      <div class="rating rating-dark" aria-label="Rating ${rating.toFixed(1)} out of 5">
-        <span class="rating-value">${rating.toFixed(1)}</span>${starsMarkup(rating)}
+      <div class="rating rating-dark">
+        <span class="rating-value">${rating}<span class="visually-hidden"> out of 5</span></span>
+        ${starsMarkup(data.rating)}
       </div>
       <ul class="exercise-stats">
         ${stat('Target', data.target)}
