@@ -1,0 +1,86 @@
+.menu-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  background-color: var(--color-backdrop);
+  opacity: 0;
+  visibility: hidden;
+  transition:
+    opacity var(--transition),
+    visibility var(--transition);
+}
+
+.menu-backdrop.is-open {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mobile-menu {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 210px;
+  height: 100%;
+  padding: 20px;
+  overflow-y: auto;
+  background-color: var(--color-dark);
+  transform: translateX(100%);
+  transition: transform var(--transition);
+}
+
+.menu-backdrop.is-open .mobile-menu {
+  transform: translateX(0);
+}
+
+.mobile-menu-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  display: flex;
+  padding: 0;
+  color: var(--color-light);
+  background: none;
+  border: none;
+}
+
+.mobile-menu-nav {
+  margin-top: 260px;
+  margin-bottom: 40px;
+}
+
+.mobile-menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.mobile-menu-link {
+  display: block;
+  font-size: 14px;
+  line-height: 1.29;
+  color: var(--color-light);
+  transition: opacity var(--transition);
+}
+
+.mobile-menu-link:hover,
+.mobile-menu-link:focus-visible {
+  opacity: 0.6;
+}
+
+.mobile-menu-socials {
+  margin-top: auto;
+}
+
+.no-scroll {
+  overflow: hidden;
+}
+
+@media screen and (min-width: 768px) {
+  .menu-backdrop {
+    display: none;
+  }
+}

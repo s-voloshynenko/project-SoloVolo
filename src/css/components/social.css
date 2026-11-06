@@ -28,13 +28,13 @@
   background-color: var(--color-dark);
 }
 
-.social-link-dark {
+.social-list-dark .social-link {
   color: var(--color-light);
   border-color: var(--color-border-soft-dark);
 }
 
-.social-link-dark:hover,
-.social-link-dark:focus-visible {
+.social-list-dark .social-link:hover,
+.social-list-dark .social-link:focus-visible {
   color: var(--color-dark);
   background-color: var(--color-light);
 }
