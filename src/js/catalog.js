@@ -1,9 +1,9 @@
 import { getExercises, getFilters } from './api';
 import { notifyError } from './notify';
+import { exerciseCard } from './exercise-card';
 import { renderPagination } from './pagination';
 
 const tablet = window.matchMedia('(min-width: 768px)');
-const sprite = new URL('../images/icons.svg', import.meta.url).href;
 
 const state = {
   view: 'categories',
@@ -27,41 +27,6 @@ function categoryMarkup({ name, filter, imgURL }) {
       <span class="category-name">${name}</span>
       <span class="category-filter">${filter}</span>
     </button>
-  </li>`;
-}
-
-function exerciseMarkup({
-  _id,
-  name,
-  rating,
-  burnedCalories,
-  time,
-  bodyPart,
-  target,
-}) {
-  return `<li class="exercise-card">
-    <div class="exercise-top">
-      <span class="exercise-badge">Workout</span>
-      <span class="exercise-rating">
-        ${Number(rating).toFixed(1)}
-        <svg class="icon" aria-hidden="true"><use href="${sprite}#icon-star"></use></svg>
-      </span>
-      <button class="exercise-start" type="button" data-exercise-id="${_id}">
-        Start
-        <svg class="icon" aria-hidden="true"><use href="${sprite}#icon-arrow"></use></svg>
-      </button>
-    </div>
-    <h3 class="exercise-name">
-      <span class="exercise-icon" aria-hidden="true">
-        <svg class="icon"><use href="${sprite}#icon-running"></use></svg>
-      </span>
-      <span class="exercise-name-text">${name}</span>
-    </h3>
-    <ul class="exercise-meta">
-      <li><span class="exercise-meta-label">Burned calories:</span> ${burnedCalories} / ${time} min</li>
-      <li><span class="exercise-meta-label">Body part:</span> <span class="exercise-meta-value">${bodyPart}</span></li>
-      <li><span class="exercise-meta-label">Target:</span> <span class="exercise-meta-value">${target}</span></li>
-    </ul>
   </li>`;
 }
 
@@ -91,7 +56,7 @@ async function load() {
     const items = data.results;
     const list = isCategories ? refs.categories : refs.exercises;
     list.innerHTML = items
-      .map(isCategories ? categoryMarkup : exerciseMarkup)
+      .map(isCategories ? categoryMarkup : item => exerciseCard(item))
       .join('');
 
     refs.categories.hidden = !isCategories;
