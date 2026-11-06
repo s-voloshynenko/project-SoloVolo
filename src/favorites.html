@@ -16,9 +16,21 @@
 
     <main>
       <section class="favorites">
-        <div class="container favorites-container">
-          <h1 class="visually-hidden">Favorite exercises</h1>
-          <load src="./partials/daily.html" />
+        <div class="container">
+          <h1 class="favorites-title">Favorites</h1>
+
+          <div class="favorites-body">
+            <load src="./partials/daily.html" />
+
+            <div class="favorites-content">
+              <ul class="exercise-list favorites-list" data-favorites-list></ul>
+              <p class="favorites-empty" data-favorites-empty hidden>
+                It appears that you haven't added any exercises to your favorites yet. To get started, you
+                can add exercises that you like to your favorites for easier access in the future.
+              </p>
+              <ul class="pagination favorites-pagination" data-favorites-pagination></ul>
+            </div>
+          </div>
         </div>
       </section>
     </main>

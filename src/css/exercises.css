@@ -274,7 +274,7 @@
 .exercise-top {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 8px;
 }
 
 .exercise-badge {
@@ -289,6 +289,7 @@
 
 .exercise-rating {
   display: flex;
+  margin-left: 8px;
   align-items: center;
   gap: 2px;
   font-size: 12px;
