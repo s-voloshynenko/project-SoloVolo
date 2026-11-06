@@ -1,0 +1,26 @@
+.nav-pill {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  min-height: 52px;
+  padding: 8px;
+  background-color: var(--color-dark);
+  border-radius: var(--radius-nav);
+}
+
+.nav-link {
+  display: block;
+  padding: 6px 12px;
+  color: var(--color-light);
+  border-radius: var(--radius-pill);
+  transition:
+    background-color var(--transition),
+    color var(--transition);
+}
+
+.nav-link:hover,
+.nav-link:focus-visible,
+.nav-link.is-active {
+  color: var(--color-dark);
+  background-color: var(--color-light);
+}

@@ -76,5 +76,4 @@ button {
 .icon {
   display: block;
   flex-shrink: 0;
-  fill: currentColor;
 }
