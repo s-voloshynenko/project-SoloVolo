@@ -13,3 +13,10 @@ export async function getQuote() {
   const { data } = await api.get('/quote');
   return data;
 }
+
+export async function getFilters({ filter, page = 1, limit = 12 }) {
+  const { data } = await api.get('/filters', {
+    params: { filter, page, limit },
+  });
+  return data;
+}
