@@ -8,3 +8,8 @@ export async function subscribe(email) {
   const { data } = await api.post('/subscription', { email });
   return data;
 }
+
+export async function getQuote() {
+  const { data } = await api.get('/quote');
+  return data;
+}
