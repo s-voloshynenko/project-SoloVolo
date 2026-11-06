@@ -1,3 +1,1 @@
-import { initHeader } from './js/header';
-
-initHeader();
+import './js/common';

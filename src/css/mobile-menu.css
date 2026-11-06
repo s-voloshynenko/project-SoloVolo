@@ -13,6 +13,9 @@
 .menu-backdrop.is-open {
   opacity: 1;
   visibility: visible;
+  transition:
+    opacity var(--transition),
+    visibility 0s;
 }
 
 .mobile-menu {

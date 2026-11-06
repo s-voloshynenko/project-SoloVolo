@@ -3,7 +3,7 @@ export function initHeader() {
     ? 'favorites'
     : 'home';
 
-  document.querySelectorAll('.nav-link[data-page]').forEach(link => {
+  document.querySelectorAll('a[data-page]').forEach(link => {
     if (link.dataset.page === page) {
       link.classList.add('is-active');
       link.setAttribute('aria-current', 'page');
