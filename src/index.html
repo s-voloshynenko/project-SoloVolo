@@ -19,7 +19,38 @@
 
       <section class="exercises">
         <div class="container exercises-container">
-          <load src="./partials/daily.html" />
+          <div class="exercises-head">
+            <h2 class="exercises-title">Exercises</h2>
+            <ul class="filters" data-filters>
+              <li>
+                <button class="filter-btn is-active" type="button" data-filter="Muscles" aria-pressed="true">
+                  Muscles
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" type="button" data-filter="Body parts" aria-pressed="false">
+                  Body parts
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" type="button" data-filter="Equipment" aria-pressed="false">
+                  Equipment
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="exercises-body">
+            <div class="exercises-content">
+              <ul class="categories" data-categories></ul>
+              <p class="exercises-empty" data-categories-empty hidden>
+                Nothing found for this filter. Try another one.
+              </p>
+              <ul class="pagination exercises-pagination" data-categories-pagination></ul>
+            </div>
+
+            <load src="./partials/daily.html" />
+          </div>
         </div>
       </section>
     </main>
