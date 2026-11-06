@@ -11,9 +11,9 @@
     <link rel="icon" type="image/svg+xml" href="/project-SoloVolo/favicon.svg" />
     <script type="module" crossorigin src="/project-SoloVolo/index.js"></script>
     <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/vendor-rxgDquHB.js">
-    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/common-BDuaxnxb.js">
-    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/common-CtbSvALQ.css">
+    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/pagination-uK9gCzVs.js">
     <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/vendor-DnveWo0P.css">
+    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/pagination-CPU2RxTM.css">
   </head>
   <body>
     <header class="header">
@@ -198,33 +198,60 @@
       <section class="exercises">
         <div class="container exercises-container">
           <div class="exercises-head">
-            <h2 class="exercises-title">Exercises</h2>
-            <ul class="filters" data-filters>
-              <li>
-                <button class="filter-btn is-active" type="button" data-filter="Muscles" aria-pressed="true">
-                  Muscles
-                </button>
-              </li>
-              <li>
-                <button class="filter-btn" type="button" data-filter="Body parts" aria-pressed="false">
-                  Body parts
-                </button>
-              </li>
-              <li>
-                <button class="filter-btn" type="button" data-filter="Equipment" aria-pressed="false">
-                  Equipment
-                </button>
-              </li>
-            </ul>
+            <div class="exercises-heading">
+              <h2 class="exercises-title">
+                Exercises<span class="exercises-slash" data-category-slash hidden> /</span>
+              </h2>
+              <span class="exercises-category" data-category-label hidden></span>
+            </div>
+
+            <div class="exercises-tools">
+              <form class="search-field exercises-search" data-search-form hidden>
+                <label class="visually-hidden" for="exercise-search">Search exercises</label>
+                <input
+                  class="search-input"
+                  id="exercise-search"
+                  type="search"
+                  name="keyword"
+                  placeholder="Search"
+                  autocomplete="off"
+                />
+                <div class="search-actions">
+                  <button class="search-btn search-clear" type="button" aria-label="Clear search" data-search-clear hidden>
+                    <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-close"></use></svg>
+                  </button>
+                  <button class="search-btn" type="submit" aria-label="Search">
+                    <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-search"></use></svg>
+                  </button>
+                </div>
+              </form>
+
+              <ul class="filters" data-filters>
+                <li>
+                  <button class="filter-btn is-active" type="button" data-filter="Muscles" aria-pressed="true">
+                    Muscles
+                  </button>
+                </li>
+                <li>
+                  <button class="filter-btn" type="button" data-filter="Body parts" aria-pressed="false">
+                    Body parts
+                  </button>
+                </li>
+                <li>
+                  <button class="filter-btn" type="button" data-filter="Equipment" aria-pressed="false">
+                    Equipment
+                  </button>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="exercises-body">
             <div class="exercises-content">
               <ul class="categories" data-categories></ul>
-              <p class="exercises-empty" data-categories-empty hidden>
-                Nothing found for this filter. Try another one.
-              </p>
-              <ul class="pagination exercises-pagination" data-categories-pagination></ul>
+              <ul class="exercise-list" data-exercises hidden></ul>
+              <p class="exercises-empty" data-catalog-empty hidden></p>
+              <ul class="pagination exercises-pagination" data-catalog-pagination></ul>
             </div>
 
             <aside class="daily" aria-label="Daily motivation">
@@ -372,6 +399,81 @@
     <p class="footer-copy">&copy;2023</p>
   </div>
 </footer>
+
+    <div class="modal-backdrop" data-exercise-backdrop>
+  <div class="modal exercise-modal" role="dialog" aria-modal="true" aria-labelledby="exercise-modal-title">
+    <button class="modal-close" type="button" aria-label="Close" data-exercise-close>
+      <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-close-menu"></use></svg>
+    </button>
+
+    <div class="exercise-modal-body">
+      <div class="exercise-media" data-exercise-media></div>
+
+      <div class="exercise-info">
+        <h2 class="exercise-modal-title" id="exercise-modal-title" data-exercise-name></h2>
+
+        <div class="rating rating-dark">
+          <span class="rating-value">
+            <span data-exercise-rating></span><span class="visually-hidden"> out of 5</span>
+          </span>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use>
+          </svg>
+          <svg class="icon rating-star" aria-hidden="true" data-exercise-star>
+            <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use>
+          </svg>
+        </div>
+
+        <ul class="exercise-stats">
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Target</span>
+            <span class="exercise-stat-value" data-exercise-target></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Body Part</span>
+            <span class="exercise-stat-value" data-exercise-bodypart></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Equipment</span>
+            <span class="exercise-stat-value" data-exercise-equipment></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Popular</span>
+            <span class="exercise-stat-value" data-exercise-popularity></span>
+          </li>
+          <li class="exercise-stat">
+            <span class="exercise-stat-label">Burned calories</span>
+            <span class="exercise-stat-value is-plain" data-exercise-calories></span>
+          </li>
+        </ul>
+
+        <p class="exercise-description" data-exercise-description></p>
+
+        <div class="exercise-actions">
+          <button class="btn btn-filled" type="button" data-favorite-toggle>
+            <span data-favorite-label>Add to favorites</span>
+            <svg class="icon" aria-hidden="true" data-favorite-add>
+              <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-heart"></use>
+            </svg>
+            <svg class="icon" aria-hidden="true" data-favorite-remove hidden>
+              <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-trash"></use>
+            </svg>
+          </button>
+          <button class="btn btn-outline" type="button" data-rating-open hidden>Give a rating</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
 
   </body>
