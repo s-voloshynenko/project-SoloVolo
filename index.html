@@ -9,10 +9,11 @@
     />
     <title>Your Energy</title>
     <link rel="icon" type="image/svg+xml" href="/project-SoloVolo/favicon.svg" />
-    <script type="module" crossorigin src="/project-SoloVolo/assets/vendor-rxgDquHB.js"></script>
-    <script type="module" crossorigin src="/project-SoloVolo/assets/common-DwJ1yYgh.js"></script>
+    <script type="module" crossorigin src="/project-SoloVolo/index.js"></script>
+    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/vendor-rxgDquHB.js">
+    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/common-BDuaxnxb.js">
+    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/common-CtbSvALQ.css">
     <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/common-jyDLAadO.css">
   </head>
   <body>
     <header class="header">
@@ -139,7 +140,161 @@
 
 
     <main>
-      <h1 class="visually-hidden">Your Energy: exercises for every day</h1>
+      <section class="hero">
+  <div class="container hero-container">
+    <div class="hero-content">
+      <h1 class="hero-title">
+        <img class="hero-sun" src="data:image/svg+xml,%3csvg%20width='60'%20height='60'%20viewBox='0%200%2060%2060'%20fill='none'%20xmlns='http://www.w3.org/2000/svg'%3e%3cmask%20id='stroke0_126_18408'%20fill='white'%3e%3cpath%20d='M29.8721%200L30.732%2025.3997L40.7093%202.02583L32.3358%2026.021L50.0829%207.82973L33.6068%2027.1797L56.727%2016.6278L34.3734%2028.7193L59.7441%2027.2319L34.5321%2030.4318L58.7268%2038.2099L34.0614%2032.0861L53.8126%2048.079L33.025%2033.4586L45.665%2055.5065L31.5627%2034.364L35.3846%2059.4892L29.8721%2034.68L24.3596%2059.4892L28.1815%2034.364L14.0791%2055.5065L26.7192%2033.4586L5.93155%2048.079L25.6827%2032.0861L1.0173%2038.2099L25.212%2030.4318L4.57764e-05%2027.2319L25.3707%2028.7193L3.01717%2016.6278L26.1374%2027.1797L9.6612%207.82973L27.4084%2026.021L19.0348%202.02583L29.0121%2025.3997L29.8721%200Z'/%3e%3c/mask%3e%3cpath%20d='M29.8721%200L30.732%2025.3997L40.7093%202.02583L32.3358%2026.021L50.0829%207.82973L33.6068%2027.1797L56.727%2016.6278L34.3734%2028.7193L59.7441%2027.2319L34.5321%2030.4318L58.7268%2038.2099L34.0614%2032.0861L53.8126%2048.079L33.025%2033.4586L45.665%2055.5065L31.5627%2034.364L35.3846%2059.4892L29.8721%2034.68L24.3596%2059.4892L28.1815%2034.364L14.0791%2055.5065L26.7192%2033.4586L5.93155%2048.079L25.6827%2032.0861L1.0173%2038.2099L25.212%2030.4318L4.57764e-05%2027.2319L25.3707%2028.7193L3.01717%2016.6278L26.1374%2027.1797L9.6612%207.82973L27.4084%2026.021L19.0348%202.02583L29.0121%2025.3997L29.8721%200Z'%20stroke-width='8'%20stroke='%23242424'%20mask='url(%23stroke0_126_18408)'/%3e%3c/svg%3e" width="59" height="59" alt="" />
+        Get <em>Body</em> in shape, Stay healthy
+      </h1>
+      <p class="hero-text">
+        Transform your physique and embrace a healthier lifestyle with our comprehensive fitness and
+        nutrition support.
+      </p>
+    </div>
+
+    <img
+      class="hero-thumb"
+      src="data:image/webp;base64,UklGRvwLAABXRUJQVlA4WAoAAAAQAAAApwAAYwAAQUxQSDMBAAABgFtr29rmM8MEghFMraYwzUCLBMyoITSBYQWrDzOWkqn9/oDAobfLcURMAHlX8+351ZLF37+8nDRKMu06oh2blsCR7cVBLrSTlP4q4Hzop/0l62cC0pNKwoc83gpQN0PJk2KwgJUNxYNksACWDdklMWQBLY+TTpWNAHdbd0ifCHjPUkQU6guA9QhR7h6hV43oQEDcIHmBkamWbIysfIMxEu2JAHl+idLVEqWlQJlh2vt/7/9/XRmmJUrLK5Qu5yhN2iBxI29hZJdUE6OFTA2MDoi0V4QeckQRHaF+iIhSZ/icpOlzfYvOpkKOSZ2x4WHCiWSDkWFDInfFYFzYUMirNNygstVl8p6onGByVk+S73T/AY9XPUW7DOUOTJuBsMyGFqFdy+Xm5HIJAC+v5u28St4BAFZQOCCiCgAA0DQAnQEqqABkAD5hKJBFJCKhl3kebEAGBLGAZbAvyjxkH0b5vp98q7pKc63uwD0x8zAadqXV14T4HCJA7IWneLlVJzTspQwHuR+BPMK6mBUZtYucftxpbPHAmc6MOEwdaYg/vMg28IBb/VN3QfALURMWPyKP20aj7DQn4b1zqOB19WvRuYJQNiIha2ExNniUP/fzze5tsF6n6xkTo25VpK+ouBSeidRddZ5D6oLkYR8xYAkvDxzsFbvDlz/dP+xjrJbGdfSRlKIlVuASB8OnsflBVv/8S2R4eKLzfzA2TMChjGkkY/4zvENjv0YsvhT100Zzw7KqyYcq1GdW6MUk7Pw/KBDmFjkbXn/fBdhXsS4fd6tRzIKNz+jXdA2/Nsco/ndbfZKYO6bEDREhJm6+AsFqQvCcPGNW++3aStKhvQEqcfC7j0uZXBYEq5SSzTu+5hJthqQfBsSBUcXagytdZ010eiN3OzZKeTFjEAxdTMvRzZBUC132oJUo18hK6HLmmdrP7MPRIiET+6xrP9sOnVNPoaFDX/4dIYk/jRF4pt1RU1LYlTHDestc4Y+WVAAA/vcD7jq1g+Za+urVtBbR2FCKOUl5Ljnm8soIGP1fCRAmdtBuF4CgXbGnrqAupxOA4bZ7agDq+eUeLEeQ3cPX8/pDKl7WJ4OnSkgaH4hA5c2Yvt5HlfTdiCdB4Hemd7LJGma/sOtr34IKON2txi/3nJaE6BqPTSlHWJ0Q004IQGZkBgoSeGlWWHM2B8RqwMl6BjelvzSfm3mIJq2Hx0hDjRbPKVfVcaTaYntqeUU1KAkfvN4mv3PCimLbgIdeZfWa7IfvXjSF7tlmVF3HGKcMzvqMkhQlsqWK7peUNPOqHYHK7AdfEgPjENh4kTQ0VRw099YbYXZP9Iq+kLHBDEuAq82mFIuHIjEiuYcNr9o02rN/08EpURyDd2THqPsBHhqHQ7O7YsSQ7cfRVHRJ+pbSnBCYmazX3lZsr3La/e37JHBwgxSPK0g29pZJMkn5MyZqCbhxNj8/ycrv54zLQ+AGCzFjAP/8gCDNed8GHVZobwZBtBR/qG6NqWDHsFr+LsrgWiNevE0c36bA6C6O0h09mqMA0hOajoxfjcHcxrpLjfgtJ4LNCMsBFEFs8RXFLsAV/q9R/fLX31VxseBpZWItc5PNZS+r8f9W+akdWKck8ua8Blaoh0+e4Z0mhJsRcNV7gWHnLrfUF4whBSArHAXZ4dn9N2B9L34ofcOfnaxRN1hyz2QVxIXNliBKl4Vmr4iWJrTW07evGjp+nQUovlBLVQFfW5TUnFxEdJixl7JXFbP8nDnZp/62AO5ItXdwQH4fF284dXIkZx05CnjTbkTo8Jf4byNfHzExF8BdoAK/HCDqQ+9cBe/vt3YFkte2A/feOmvwLUeD4Ss68WdwHuwx1O12y0Idc3o77+bCeohIuum/Z29i6P5N+dYwAauNLH2xyoiR8keczPOHwdHyfejArtuv8mXbWJXNu37Bol/DRnTwBUoFA6zWfRf8jalqLQd/SPosDMzkh0sRlkDGrjQvVic29dw6ff+hr5T2FBT2HjXnL+ttLDCNufYssAijSEUqttBfvGx2HVhtodn25TTuG3qn9qiw2GCRvPUiBSMtNiG0OIQu35xFP9vJ5Zi2skf4upXxfI2bKO23LCjPBfj2uSIZG2VeOG7E4Jp9q+h57zbkPi0hceYSzEuVl5MmZzuJmAc+XyxlLsXYyJNupokYENZuhts0xQqIzBWecEbYudlFqV3LQmVY8TbVsLJZUKcwCJ/Xa8iR27hHN/YMdu3KEKdu32gGV6K7lij0c7ztkfGJFfdGddDJ4jJY2I5Hx00hA3eYaNz0xLeM+B9qKmKtA+1IOhpqpQM6uGzc9Ke4VJYcmdA611tpZaut7vz2Iba/qhel9qXCBql60PWVZJniQq8Rya9PaH+nUW+EcpdThFDB3KWjoU9S0dlK8iUn5YgFWGGfFKoZ45jKaf4zLOSLy8QPr5u56rk6bBPkWZ3nY/rFsXeKvIQsAaG8QeWjLqTO4LNzPJGm7PyWVlJDwTZF1yjbXFLCWGxT/RWyRea1Y6g+3GwW/xNSFobvNVMfAe0cvws+/A8fBOSl9iOyc4JYTQnP53/9gRJUD0fFzClxMc3rND/XoAFTTE/9TX3AdiwnDYCqhMCJjvyj/hIcQqfxacj54p1XDr0khcozJq/VCkcqm+raF1/TZd5b5ympBnTyVq8uNiZiZ2vz/r3q52B1gIWYmY/CyPYmC1raliByStOWjArvfM5tJ58uGUWDWCfjo8Wm2xf8HHBIPMzh0LQzrnFdPPQk8w5stN7UMvtWeV1YNADik4flY8wOwnVMIXziOT56Z7CH1mVj3QVWbOrt98rwlXDlM0J2HbFLUbJOEsdrSBnnZ5mWpeL+WrZIMPCFk1u8IILp2jfG+FM5ZfKOx+eVA5rXvrFJGTYlz921A5mmd3hYjyExSdl08Juk/kAl51qT/qXdDiKPxfjkfD+BA6UfJWIcYAL+zg77XvnI97O2ua+WUnkY2X4FQqAMgMo2Bs8rr21QtVXVQgfgcuMF89unDcT3XZCEZ/e9Q77TWP7z5DfdHuxjX19lYSojmRox1mXjYYUJBtFQVpEa3pej2bT9TILXuZVOKF/65AgUOfanbYR6kfHEvmCAKZX9CaxOhRbNOtJHIpHKhTLEQ9za4h96gEmCWQh1q7GwAj/8HV3JYQXOA1GZhrQa/iBc8vj9E4A3Bwibt5GMQjRE57r8d099hCSaiVi+HCQPPeXi9SQiMxqRmOqdpGUAUEKxxXfjA2rLkHIQT6gyJAz4uvaRiFUD4RvU55tksWzIPygPCvQRwLIbAtN9nzvUe88gOpWmOE6oZYVVMWKqKCLFff06LZF3Jv/dON0Dv3sksxpBxW2GaanQ7g7LVyuScWpbCgxH/NeLvcgmGOWWcX0J/BmUIY8fm3gQvXZlv15KZNYohnpDXCgPKMvPwKVyz5XLGYlS+LNz/WOGN/pG4QahRPnGYVChfrb1bBnaJBdQPaisXUexPzWY7XGc3kL9TO+R0spBPivmsPK+efNSgTcxCnsDyfPzg7fMkBd2+HgVa9Do+W/W06J2iamsfY7IPAqhXaP8bjEqzvAsaTXMgBr+ckgnJd9QGQ+ZYN9al9FBFdu/i9rzq6xVx5dZC1jBdOLNpuImz2EGp9IusszhMMDYsLjIx99nUDGqZQIptmju8p8JxrnEn+cltLW6CpBRKI/LGRKDYLXV712q/ZWC0fsLEv6Lyg4n+Px9hO3qGawaP6WXAJRbntfGosZMZoD89dSx8tgEeyIW0Uc6AVoTyU+U4x+or4fJe9yD//ijCmb5HqWZ7eixfAsxfw/seqUaR+6Lac1TV6peRg/RQsAQP1d5Ly4xgolQr+K9ICtLk0DgmDGz7ldWhj4e2ewKbCZWcEiJ0j1cEfZmsxpp6jBCO0dJx90fMt/bc7CafPccSRE8alhT/BpApOxNxjarwckhwL/OBzSkHe2Q0tNjIIauk+SakScWJl2kpu2IPUEVDo61CQAjuMFb6vij3eJ/NZ+6rZtcygk+mL43jZqyHPHyChdFkUZ77rcvyHrwrlmNmLeZR6r/wAAAAA=="
+      srcset="data:image/webp;base64,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 1x, /project-SoloVolo/assets/hero-thumb@2x-Di2CP_Se.webp 2x"
+      width="168"
+      height="100"
+      alt="Two women balancing on one leg, feet touching"
+    />
+
+    <ul class="hero-tags">
+      <li class="hero-tag">#Sport</li>
+      <li class="hero-tag">#Healthy</li>
+      <li class="hero-tag">#Workout</li>
+      <li class="hero-tag">#Diet</li>
+    </ul>
+
+    <picture class="hero-picture">
+      <source
+        media="(min-width: 1440px)"
+        srcset="/project-SoloVolo/assets/hero-desktop-DMGSae4O.webp 1x, /project-SoloVolo/assets/hero-desktop@2x-D6VgD9kF.webp 2x"
+        width="1376"
+        height="350"
+      />
+      <source
+        media="(min-width: 768px)"
+        srcset="/project-SoloVolo/assets/hero-tablet-CnLNcc7R.webp 1x, /project-SoloVolo/assets/hero-tablet@2x-CGrdsojM.webp 2x"
+        width="704"
+        height="550"
+      />
+      <img
+        class="hero-img"
+        src="/project-SoloVolo/assets/hero-mobile-Bemf8AJE.webp"
+        srcset="/project-SoloVolo/assets/hero-mobile-Bemf8AJE.webp 1x, /project-SoloVolo/assets/hero-mobile@2x-DqoK9VkI.webp 2x"
+        width="335"
+        height="460"
+        alt="Two women giving each other a high five during a workout by the lake"
+      />
+    </picture>
+  </div>
+</section>
+
+
+      <section class="exercises">
+        <div class="container exercises-container">
+          <div class="exercises-head">
+            <h2 class="exercises-title">Exercises</h2>
+            <ul class="filters" data-filters>
+              <li>
+                <button class="filter-btn is-active" type="button" data-filter="Muscles" aria-pressed="true">
+                  Muscles
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" type="button" data-filter="Body parts" aria-pressed="false">
+                  Body parts
+                </button>
+              </li>
+              <li>
+                <button class="filter-btn" type="button" data-filter="Equipment" aria-pressed="false">
+                  Equipment
+                </button>
+              </li>
+            </ul>
+          </div>
+
+          <div class="exercises-body">
+            <div class="exercises-content">
+              <ul class="categories" data-categories></ul>
+              <p class="exercises-empty" data-categories-empty hidden>
+                Nothing found for this filter. Try another one.
+              </p>
+              <ul class="pagination exercises-pagination" data-categories-pagination></ul>
+            </div>
+
+            <aside class="daily" aria-label="Daily motivation">
+  <div class="quote-card">
+    <div class="daily-head">
+      <span class="daily-icon daily-icon-dark" aria-hidden="true">
+        <svg class="icon" width="18" height="18"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-running"></use></svg>
+      </span>
+      <div>
+        <h2 class="daily-title">Quote of the day</h2>
+        <blockquote class="quote-text" data-quote-text>
+          A lot of times I find that people who are blessed with the most talent don't ever develop
+          that attitude, and the ones who aren't blessed in that way are the most competitive and have
+          the biggest heart.
+        </blockquote>
+        <p class="quote-author" data-quote-author>Tom Brady</p>
+      </div>
+    </div>
+    <svg class="icon quote-marks" width="24" height="24" aria-hidden="true">
+      <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-quote"></use>
+    </svg>
+  </div>
+
+  <picture class="daily-picture">
+    <source
+      media="(min-width: 1440px)"
+      srcset="/project-SoloVolo/assets/quote-desktop-v3LNoWjR.webp 1x, /project-SoloVolo/assets/quote-desktop@2x-DT8C7eTB.webp 2x"
+      width="444"
+      height="242"
+    />
+    <source
+      media="(min-width: 768px)"
+      srcset="/project-SoloVolo/assets/quote-tablet-CqBiOxHo.webp 1x, /project-SoloVolo/assets/quote-tablet@2x-B1GKC5zq.webp 2x"
+      width="288"
+      height="249"
+    />
+    <img
+      class="daily-img"
+      src="/project-SoloVolo/assets/quote-mobile-CtdPKj0l.webp"
+      srcset="/project-SoloVolo/assets/quote-mobile-CtdPKj0l.webp 1x, /project-SoloVolo/assets/quote-mobile@2x-CPJMrUER.webp 2x"
+      width="335"
+      height="242"
+      loading="lazy"
+      alt="Two women with water bottles talking after a workout"
+    />
+  </picture>
+
+  <div class="info-card">
+    <div class="daily-head">
+      <span class="daily-icon daily-icon-light" aria-hidden="true">
+        <svg class="icon" width="20" height="15"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-dumbbell"></use></svg>
+      </span>
+      <div>
+        <h2 class="daily-title">110 min</h2>
+        <p class="info-subtitle">Daily norm of sports</p>
+        <p class="info-text">
+          The World Health Organization recommends at least 150 minutes of moderate-intensity aerobic
+          physical activity throughout the week for adults aged 18-64. However, what happens if we
+          adjust that number to 110 minutes every day? While it might seem like a high number to hit,
+          dedicating 110 minutes daily to sporting activities may offer unparalleled benefits to
+          physical health, mental well-being, and overall quality of life.
+        </p>
+      </div>
+    </div>
+  </div>
+</aside>
+
+          </div>
+        </div>
+      </section>
     </main>
 
     <footer class="footer">
