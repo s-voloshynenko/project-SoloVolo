@@ -49,3 +49,9 @@
   color: var(--color-muted);
   cursor: default;
 }
+
+.pagination-dots {
+  font-size: 24px;
+  line-height: 1.33;
+  color: var(--color-muted);
+}
