@@ -2,3 +2,11 @@
 @import url('./fonts.css');
 @import url('./base.css');
 @import url('./container.css');
+@import url('./components/typography.css');
+@import url('./components/button.css');
+@import url('./components/social.css');
+@import url('./components/search-field.css');
+@import url('./components/nav.css');
+@import url('./components/pagination.css');
+@import url('./components/rating.css');
+@import url('./components/scroll-up.css');

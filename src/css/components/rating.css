@@ -1,0 +1,27 @@
+.rating {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+}
+
+.rating-value {
+  margin-right: 2px;
+}
+
+.rating-star {
+  width: 18px;
+  height: 18px;
+  color: var(--color-star-empty-light);
+}
+
+.rating-dark {
+  color: var(--color-light);
+}
+
+.rating-dark .rating-star {
+  color: var(--color-star-empty-dark);
+}
+
+.rating-star.is-filled {
+  color: var(--color-accent);
+}

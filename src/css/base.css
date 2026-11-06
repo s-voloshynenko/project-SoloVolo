@@ -4,6 +4,15 @@
   --color-white: #ffffff;
   --color-accent: #eea10c;
   --color-backdrop: rgba(4, 4, 4, 0.4);
+  --color-muted: #d4d4d4;
+  --color-star-empty-dark: rgba(244, 244, 244, 0.2);
+  --color-star-empty-light: rgba(36, 36, 36, 0.2);
+  --color-border-soft: rgba(36, 36, 36, 0.1);
+  --color-border-soft-dark: rgba(244, 244, 244, 0.2);
+  --radius-pill: 30px;
+  --radius-nav: 60px;
+  --radius-box: 10px;
+  --radius-card: 20px;
   --font-main: 'DM Sans', sans-serif;
   --transition: 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
@@ -62,4 +71,9 @@ button {
   border: 0;
   clip: rect(0 0 0 0);
   white-space: nowrap;
+}
+
+.icon {
+  display: block;
+  flex-shrink: 0;
 }
