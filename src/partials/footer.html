@@ -1,3 +1,42 @@
 <footer class="footer">
-  <div class="container"></div>
+  <div class="container footer-container">
+    <div class="footer-brand">
+      <a class="footer-logo" href="./index.html" aria-label="Your Energy, home page">
+        <svg class="icon" width="132" height="24" aria-hidden="true">
+          <use href="./images/icons.svg#icon-logo"></use>
+        </svg>
+      </a>
+
+      <ul class="social-list social-list-dark footer-socials">
+        <load src="partials/socials.html" />
+      </ul>
+    </div>
+
+    <p class="footer-slogan">Transforming your <em>body</em> shape with us</p>
+
+    <form class="subscribe-form" data-subscribe-form>
+      <label class="subscribe-title" for="subscribe-email">Subscribe and learn about new exercises!</label>
+      <input
+        class="subscribe-input"
+        id="subscribe-email"
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="email"
+        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        required
+      />
+      <button class="subscribe-btn" type="submit">Send</button>
+    </form>
+
+    <p class="footer-rights">Your Energy. All rights reserved.</p>
+
+    <ul class="footer-legal">
+      <li><a class="footer-legal-link" href="#">Privacy Policy</a></li>
+      <li aria-hidden="true">/</li>
+      <li><a class="footer-legal-link" href="#">Terms of Service</a></li>
+    </ul>
+
+    <p class="footer-copy">&copy;2023</p>
+  </div>
 </footer>
