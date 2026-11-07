@@ -14,8 +14,7 @@ function updateFavoriteButton() {
   refs.favoriteLabel.textContent = saved
     ? 'Remove from favorites'
     : 'Add to favorites';
-  refs.favoriteAdd.toggleAttribute('hidden', saved);
-  refs.favoriteRemove.toggleAttribute('hidden', !saved);
+  refs.favorite.classList.toggle('is-saved', saved);
 }
 
 function render(data) {
@@ -102,8 +101,6 @@ export function initExerciseModal() {
     description: find('exercise-description'),
     favorite: find('favorite-toggle'),
     favoriteLabel: find('favorite-label'),
-    favoriteAdd: find('favorite-add'),
-    favoriteRemove: find('favorite-remove'),
     rate: find('rating-open'),
   };
 
