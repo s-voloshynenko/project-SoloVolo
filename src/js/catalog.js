@@ -25,7 +25,7 @@ function pageSize() {
 function categoryMarkup({ name, filter, imgURL }) {
   return `<li>
     <button class="category-card" type="button" data-category="${name}">
-      <img class="category-img" src="${imgURL}" alt="" loading="lazy" width="290" height="242" />
+      <img class="category-img" src="${imgURL}" alt="" loading="lazy" fetchpriority="low" decoding="async" width="290" height="242" />
       <span class="category-name">${name}</span>
       <span class="category-filter">${filter}</span>
     </button>
@@ -205,5 +205,9 @@ export function initCatalog() {
     load();
   });
 
-  load();
+  if (document.readyState === 'complete') {
+    load();
+  } else {
+    window.addEventListener('load', () => load(), { once: true });
+  }
 }
