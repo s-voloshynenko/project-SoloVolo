@@ -1,16 +1,27 @@
+import { notifyError } from './notify';
+
 const STORAGE_KEY = 'your-energy-favorites';
+
+function isExercise(item) {
+  return Boolean(item) && typeof item._id === 'string';
+}
 
 export function getFavorites() {
   try {
     const list = JSON.parse(localStorage.getItem(STORAGE_KEY));
-    return Array.isArray(list) ? list : [];
+    return Array.isArray(list) ? list.filter(isExercise) : [];
   } catch {
     return [];
   }
 }
 
 function save(list) {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(list));
+  } catch {
+    notifyError('Could not save favorites in this browser.');
+    return;
+  }
   document.dispatchEvent(new CustomEvent('favorites:change'));
 }
 

@@ -14,6 +14,14 @@ function readCache() {
   }
 }
 
+function saveCache(entry) {
+  try {
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(entry));
+  } catch {
+    // storage unavailable, the quote is just fetched again next time
+  }
+}
+
 function render({ quote, author }) {
   const text = document.querySelector('[data-quote-text]');
   const name = document.querySelector('[data-quote-author]');
@@ -35,8 +43,8 @@ export async function initQuote() {
   try {
     const { quote, author } = await getQuote();
     const entry = { quote, author, date: today() };
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(entry));
     render(entry);
+    saveCache(entry);
   } catch {
     if (cached) render(cached);
   }

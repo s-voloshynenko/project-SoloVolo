@@ -41,7 +41,7 @@ async function onSubmit(event) {
       review: review.value.trim(),
     });
     notifySuccess('Thank you, your rating has been saved!');
-    modal.close('done');
+    modal.close('done', { unlockScroll: false });
   } catch (error) {
     notifyError(errorMessage(error));
   } finally {

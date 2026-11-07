@@ -15,6 +15,7 @@ const state = {
 };
 
 let refs = {};
+let lastRequest = 0;
 
 function pageSize() {
   if (state.view === 'categories') return tablet.matches ? 12 : 9;
@@ -38,6 +39,7 @@ function showEmpty(message) {
 
 async function load({ scroll = false } = {}) {
   const isCategories = state.view === 'categories';
+  const request = ++lastRequest;
 
   try {
     const data = isCategories
@@ -54,7 +56,9 @@ async function load({ scroll = false } = {}) {
           limit: pageSize(),
         });
 
-    const items = data.results;
+    if (request !== lastRequest) return;
+
+    const items = data.results ?? [];
     const list = isCategories ? refs.categories : refs.exercises;
     list.innerHTML = items
       .map(isCategories ? categoryMarkup : item => exerciseCard(item))
@@ -75,11 +79,13 @@ async function load({ scroll = false } = {}) {
 
     renderPagination(refs.pagination, {
       page: state.page,
-      totalPages: Number(data.totalPages),
+      totalPages: Number(data.totalPages) || 0,
     });
 
     if (scroll) scrollToIfHidden(refs.head);
   } catch (error) {
+    if (request !== lastRequest) return;
+
     refs.categories.innerHTML = '';
     refs.exercises.innerHTML = '';
     showEmpty('Something went wrong. Please try again later.');

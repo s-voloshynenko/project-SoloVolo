@@ -183,6 +183,10 @@
     height: 259px;
   }
 
+  .exercise-modal-body:has(.exercise-media[hidden]) {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
   .exercise-info {
     display: flex;
     flex-direction: column;
