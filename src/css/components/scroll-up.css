@@ -2,7 +2,7 @@
   position: fixed;
   right: 20px;
   bottom: 20px;
-  z-index: 10;
+  z-index: 50;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -11,13 +11,14 @@
   padding: 0;
   color: var(--color-light);
   background-color: var(--color-dark);
-  border: none;
+  border: 1px solid transparent;
   border-radius: 50%;
   opacity: 0;
   visibility: hidden;
   transition:
     opacity var(--transition),
-    visibility var(--transition);
+    visibility var(--transition),
+    border-color var(--transition);
 }
 
 .scroll-up.is-visible {
@@ -25,7 +26,31 @@
   visibility: visible;
 }
 
+.scroll-up:hover,
+.scroll-up:focus-visible {
+  border-color: var(--color-light);
+}
+
 .scroll-up .icon {
-  width: 14px;
+  width: 13px;
   height: 13px;
+}
+
+@media screen and (min-width: 768px) {
+  .scroll-up {
+    right: 32px;
+    bottom: 32px;
+  }
+}
+
+@media screen and (min-width: 1440px) {
+  .scroll-up {
+    width: 100px;
+    height: 100px;
+  }
+
+  .scroll-up .icon {
+    width: 33px;
+    height: 33px;
+  }
 }

@@ -1,8 +1,25 @@
 import axios from 'axios';
+import { hideLoader, showLoader } from './loader';
 
 const api = axios.create({
   baseURL: 'https://your-energy.b.goit.study/api',
 });
+
+api.interceptors.request.use(config => {
+  showLoader();
+  return config;
+});
+
+api.interceptors.response.use(
+  response => {
+    hideLoader();
+    return response;
+  },
+  error => {
+    hideLoader();
+    return Promise.reject(error);
+  }
+);
 
 export async function subscribe(email) {
   const { data } = await api.post('/subscription', { email });
