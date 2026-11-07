@@ -10,10 +10,9 @@
     <title>Your Energy</title>
     <link rel="icon" type="image/svg+xml" href="/project-SoloVolo/favicon.svg" />
     <script type="module" crossorigin src="/project-SoloVolo/index.js"></script>
-    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/vendor-rxgDquHB.js">
-    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/pagination-Ds40A-7C.js">
-    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/vendor-DnveWo0P.css">
-    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/pagination-2ZxZzQgo.css">
+    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/vendor-DzSg3hP9.js">
+    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/pagination-HcZuyV1G.js">
+    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/pagination-7JqMncJY.css">
   </head>
   <body>
     <header class="header">
@@ -188,6 +187,7 @@
         srcset="/project-SoloVolo/assets/hero-mobile-Bemf8AJE.webp 1x, /project-SoloVolo/assets/hero-mobile@2x-DqoK9VkI.webp 2x"
         width="335"
         height="460"
+        fetchpriority="high"
         alt="Two women giving each other a high five during a workout by the lake"
       />
     </picture>
@@ -410,7 +410,7 @@
       <div class="exercise-media" data-exercise-media></div>
 
       <div class="exercise-info">
-        <h2 class="exercise-modal-title" id="exercise-modal-title" data-exercise-name></h2>
+        <h2 class="exercise-modal-title" id="exercise-modal-title" data-exercise-name>Exercise</h2>
 
         <div class="rating rating-dark">
           <span class="rating-value">
@@ -464,7 +464,7 @@
             <svg class="icon" aria-hidden="true" data-favorite-add>
               <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-heart"></use>
             </svg>
-            <svg class="icon" aria-hidden="true" data-favorite-remove hidden>
+            <svg class="icon" aria-hidden="true" data-favorite-remove>
               <use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-trash"></use>
             </svg>
           </button>
@@ -488,24 +488,29 @@
           <span class="rating-picker-value" data-rating-value>0.0</span>
           <div class="rating-stars">
             <input class="visually-hidden" type="radio" name="rate" id="rate-5" value="5" required />
-            <label class="rating-star-label" for="rate-5" aria-label="5 stars">
+            <label class="rating-star-label" for="rate-5">
               <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+              <span class="visually-hidden">5 stars</span>
             </label>
             <input class="visually-hidden" type="radio" name="rate" id="rate-4" value="4" required />
-            <label class="rating-star-label" for="rate-4" aria-label="4 stars">
+            <label class="rating-star-label" for="rate-4">
               <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+              <span class="visually-hidden">4 stars</span>
             </label>
             <input class="visually-hidden" type="radio" name="rate" id="rate-3" value="3" required />
-            <label class="rating-star-label" for="rate-3" aria-label="3 stars">
+            <label class="rating-star-label" for="rate-3">
               <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+              <span class="visually-hidden">3 stars</span>
             </label>
             <input class="visually-hidden" type="radio" name="rate" id="rate-2" value="2" required />
-            <label class="rating-star-label" for="rate-2" aria-label="2 stars">
+            <label class="rating-star-label" for="rate-2">
               <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+              <span class="visually-hidden">2 stars</span>
             </label>
             <input class="visually-hidden" type="radio" name="rate" id="rate-1" value="1" required />
-            <label class="rating-star-label" for="rate-1" aria-label="1 star">
+            <label class="rating-star-label" for="rate-1">
               <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+              <span class="visually-hidden">1 star</span>
             </label>
           </div>
         </div>

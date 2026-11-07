@@ -1,4 +1,4 @@
-import{g as h,a as m,e as w,r as g,n as v}from"./assets/pagination-Ds40A-7C.js";import"./assets/vendor-rxgDquHB.js";const c=window.matchMedia("(min-width: 768px)"),a={view:"categories",filter:"Muscles",category:"",keyword:"",page:1};let t={};function u(){return a.view==="categories"?c.matches?12:9:c.matches?10:8}function k({name:e,filter:r,imgURL:i}){return`<li>
+import{g as h,a as m,e as w,r as g,n as v}from"./assets/pagination-HcZuyV1G.js";import"./assets/vendor-DzSg3hP9.js";const c=window.matchMedia("(min-width: 768px)"),a={view:"categories",filter:"Muscles",category:"",keyword:"",page:1};let t={};function u(){return a.view==="categories"?c.matches?12:9:c.matches?10:8}function k({name:e,filter:r,imgURL:i}){return`<li>
     <button class="category-card" type="button" data-category="${e}">
       <img class="category-img" src="${i}" alt="" loading="lazy" width="290" height="242" />
       <span class="category-name">${e}</span>
