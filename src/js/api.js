@@ -45,3 +45,12 @@ export async function getExerciseById(id) {
   const { data } = await api.get(`/exercises/${id}`);
   return data;
 }
+
+export async function rateExercise(id, { rate, email, review }) {
+  const { data } = await api.patch(`/exercises/${id}/rating`, {
+    rate,
+    email,
+    review,
+  });
+  return data;
+}
