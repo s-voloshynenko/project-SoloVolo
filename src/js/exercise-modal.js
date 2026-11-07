@@ -6,6 +6,7 @@ import { initRatingModal, openRatingModal } from './rating-modal';
 
 let refs = {};
 let modal = null;
+let pendingId = '';
 let exercise = null;
 let lastFocus = null;
 
@@ -20,11 +21,16 @@ function updateFavoriteButton() {
 function render(data) {
   const filled = Math.round(data.rating);
 
-  const gif = new Image(270, 259);
-  gif.className = 'exercise-gif';
-  gif.src = data.gifUrl;
-  gif.alt = `${data.name} exercise`;
-  refs.media.replaceChildren(gif);
+  refs.media.hidden = !data.gifUrl;
+  if (data.gifUrl) {
+    const gif = new Image(270, 259);
+    gif.className = 'exercise-gif';
+    gif.src = data.gifUrl;
+    gif.alt = `${data.name} exercise`;
+    refs.media.replaceChildren(gif);
+  } else {
+    refs.media.replaceChildren();
+  }
 
   refs.name.textContent = data.name;
   refs.rating.textContent = Number(data.rating).toFixed(1);
@@ -68,18 +74,29 @@ export function closeExerciseModal() {
 }
 
 export async function openExerciseModal(id, { keepFocus = false } = {}) {
+  pendingId = id;
+  if (!keepFocus && !modal.isOpen()) {
+    lastFocus = document.activeElement;
+  }
+
+  let data;
   try {
-    exercise = await getExerciseById(id);
+    data = await getExerciseById(id);
   } catch (error) {
+    if (pendingId !== id) return;
     notifyError(
       error.response?.data?.message ||
         'Could not load the exercise, please try again.'
     );
-    if (keepFocus) closeExerciseModal();
+    if (keepFocus) {
+      document.body.classList.remove('no-scroll');
+      lastFocus?.focus();
+    }
     return;
   }
 
-  if (!keepFocus) lastFocus = document.activeElement;
+  if (pendingId !== id) return;
+  exercise = data;
   show();
 }
 
