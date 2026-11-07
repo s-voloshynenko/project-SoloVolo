@@ -1,9 +1,11 @@
 import { getExerciseById } from './api';
 import { addFavorite, isFavorite, removeFavorite } from './favorites-store';
+import { createModal } from './modal';
 import { notifyError } from './notify';
 import { initRatingModal, openRatingModal } from './rating-modal';
 
 let refs = {};
+let modal = null;
 let exercise = null;
 let lastFocus = null;
 
@@ -39,14 +41,6 @@ function render(data) {
   updateFavoriteButton();
 }
 
-function onKeydown(event) {
-  if (event.key === 'Escape') closeExerciseModal();
-}
-
-function onBackdropClick(event) {
-  if (event.target === refs.backdrop) closeExerciseModal();
-}
-
 function onFavoriteClick() {
   if (isFavorite(exercise._id)) {
     removeFavorite(exercise._id);
@@ -56,41 +50,22 @@ function onFavoriteClick() {
   updateFavoriteButton();
 }
 
-function hide() {
-  refs.backdrop.classList.remove('is-open');
-  document.removeEventListener('keydown', onKeydown);
-  refs.backdrop.removeEventListener('click', onBackdropClick);
-  refs.close.removeEventListener('click', closeExerciseModal);
-  refs.favorite.removeEventListener('click', onFavoriteClick);
-  refs.rate.removeEventListener('click', onRateClick);
-}
-
-export function closeExerciseModal() {
-  hide();
-  document.body.classList.remove('no-scroll');
-  lastFocus?.focus();
-}
-
 function show() {
   render(exercise);
-  refs.backdrop.classList.add('is-open');
-  document.body.classList.add('no-scroll');
-
-  document.addEventListener('keydown', onKeydown);
-  refs.backdrop.addEventListener('click', onBackdropClick);
-  refs.close.addEventListener('click', closeExerciseModal);
-  refs.favorite.addEventListener('click', onFavoriteClick);
-  refs.rate.addEventListener('click', onRateClick);
-  refs.close.focus();
+  modal.open();
 }
 
 function onRateClick() {
   const id = exercise._id;
-  hide();
+  modal.close('swap', { unlockScroll: false });
   openRatingModal(id, {
     onDone: () => openExerciseModal(id, { keepFocus: true }),
     onCancel: show,
   });
+}
+
+export function closeExerciseModal() {
+  modal.close('cancel');
 }
 
 export async function openExerciseModal(id, { keepFocus = false } = {}) {
@@ -115,8 +90,6 @@ export function initExerciseModal() {
 
   const find = name => backdrop.querySelector(`[data-${name}]`);
   refs = {
-    backdrop,
-    close: find('exercise-close'),
     media: find('exercise-media'),
     name: find('exercise-name'),
     rating: find('exercise-rating'),
@@ -134,6 +107,15 @@ export function initExerciseModal() {
     rate: find('rating-open'),
   };
 
+  modal = createModal(backdrop, {
+    closeButton: find('exercise-close'),
+    onClose: reason => {
+      if (reason !== 'swap') lastFocus?.focus();
+    },
+  });
+
+  refs.favorite.addEventListener('click', onFavoriteClick);
+  refs.rate.addEventListener('click', onRateClick);
   refs.rate.hidden = !initRatingModal();
 
   document.addEventListener('click', event => {
