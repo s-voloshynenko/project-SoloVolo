@@ -11,8 +11,8 @@
     <link rel="icon" type="image/svg+xml" href="/project-SoloVolo/favicon.svg" />
     <script type="module" crossorigin src="/project-SoloVolo/favorites.js"></script>
     <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/vendor-rxgDquHB.js">
-    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/pagination-uK9gCzVs.js">
-    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/pagination-CPU2RxTM.css">
+    <link rel="modulepreload" crossorigin href="/project-SoloVolo/assets/pagination-Ds40A-7C.js">
+    <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/pagination-2ZxZzQgo.css">
     <link rel="stylesheet" crossorigin href="/project-SoloVolo/assets/vendor-DnveWo0P.css">
   </head>
   <body>
@@ -373,6 +373,77 @@
       </div>
     </div>
   </div>
+</div>
+
+    <div class="modal-backdrop" data-rating-backdrop>
+  <div class="modal rating-modal" role="dialog" aria-modal="true" aria-labelledby="rating-modal-title">
+    <button class="modal-close" type="button" aria-label="Close" data-rating-close>
+      <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-close-menu"></use></svg>
+    </button>
+
+    <form class="rating-form" data-rating-form>
+      <fieldset class="rating-fieldset">
+        <legend class="rating-legend" id="rating-modal-title">Rating</legend>
+        <div class="rating-picker">
+          <span class="rating-picker-value" data-rating-value>0.0</span>
+          <div class="rating-stars">
+            <input class="visually-hidden" type="radio" name="rate" id="rate-5" value="5" required />
+            <label class="rating-star-label" for="rate-5" aria-label="5 stars">
+              <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+            </label>
+            <input class="visually-hidden" type="radio" name="rate" id="rate-4" value="4" required />
+            <label class="rating-star-label" for="rate-4" aria-label="4 stars">
+              <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+            </label>
+            <input class="visually-hidden" type="radio" name="rate" id="rate-3" value="3" required />
+            <label class="rating-star-label" for="rate-3" aria-label="3 stars">
+              <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+            </label>
+            <input class="visually-hidden" type="radio" name="rate" id="rate-2" value="2" required />
+            <label class="rating-star-label" for="rate-2" aria-label="2 stars">
+              <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+            </label>
+            <input class="visually-hidden" type="radio" name="rate" id="rate-1" value="1" required />
+            <label class="rating-star-label" for="rate-1" aria-label="1 star">
+              <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-star"></use></svg>
+            </label>
+          </div>
+        </div>
+      </fieldset>
+
+      <label class="visually-hidden" for="rating-email">Email</label>
+      <input
+        class="rating-input"
+        id="rating-email"
+        type="email"
+        name="email"
+        placeholder="Email"
+        autocomplete="email"
+        pattern="^\w+(\.\w+)?@[a-zA-Z_]+?\.[a-zA-Z]{2,3}$"
+        required
+      />
+
+      <label class="visually-hidden" for="rating-review">Your comment</label>
+      <textarea
+        class="rating-input rating-textarea"
+        id="rating-review"
+        name="review"
+        placeholder="Your comment"
+        required
+      ></textarea>
+
+      <button class="btn btn-filled rating-submit" type="submit">Send</button>
+    </form>
+  </div>
+</div>
+
+    <button class="scroll-up" type="button" aria-label="Scroll to top" data-scroll-up>
+  <svg class="icon" aria-hidden="true"><use href="/project-SoloVolo/assets/icons-CzzOCXu3.svg#icon-arrow"></use></svg>
+</button>
+
+    <div class="loader" data-loader hidden>
+  <span class="loader-spinner" aria-hidden="true"></span>
+  <span class="visually-hidden" role="status">Loading</span>
 </div>
 
 
