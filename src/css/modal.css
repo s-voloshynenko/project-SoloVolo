@@ -143,6 +143,15 @@
   height: 18px;
 }
 
+[data-favorite-toggle] [data-favorite-remove],
+[data-favorite-toggle].is-saved [data-favorite-add] {
+  display: none;
+}
+
+[data-favorite-toggle].is-saved [data-favorite-remove] {
+  display: block;
+}
+
 @media screen and (min-width: 768px) {
   .modal-backdrop {
     align-items: center;
@@ -200,7 +209,7 @@
     padding-top: 40px;
   }
 
-  .exercise-actions:has([data-favorite-remove]:not([hidden])) {
+  .exercise-actions:has(.is-saved) {
     flex-wrap: wrap;
   }
 

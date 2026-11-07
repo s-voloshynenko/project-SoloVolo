@@ -16,7 +16,7 @@ export default defineConfig(({ command }) => {
         input: glob.sync('./src/*.html'),
         output: {
           manualChunks(id) {
-            if (id.includes('node_modules')) {
+            if (id.includes('node_modules') && !id.includes('izitoast')) {
               return 'vendor';
             }
           },
