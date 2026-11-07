@@ -2,6 +2,10 @@
   padding: 40px 0 80px;
 }
 
+.exercises-head {
+  scroll-margin-top: 20px;
+}
+
 .exercises-title {
   font-size: 28px;
   font-weight: 400;
