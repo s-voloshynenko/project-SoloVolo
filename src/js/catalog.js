@@ -206,23 +206,44 @@ export function initCatalog() {
     load();
   });
 
-  startAfterPageLoad();
+  startAfterHeroPaint();
 }
 
-function startAfterPageLoad() {
+function supportsLcp() {
+  return Boolean(
+    window.PerformanceObserver?.supportedEntryTypes?.includes(
+      'largest-contentful-paint'
+    )
+  );
+}
+
+function startAfterHeroPaint() {
+  let started = false;
+  let observer = null;
   let timer = null;
 
   function start() {
+    if (started) return;
+    started = true;
     clearTimeout(timer);
+    observer?.disconnect();
     window.removeEventListener('load', start);
     if (lastRequest === 0) load();
   }
 
-  if (document.readyState === 'complete') {
-    start();
-    return;
-  }
-
-  window.addEventListener('load', start);
   timer = setTimeout(start, START_TIMEOUT);
+
+  if (supportsLcp()) {
+    observer = new PerformanceObserver(list => {
+      const heroPainted = list
+        .getEntries()
+        .some(entry => entry.element?.classList.contains('hero-img'));
+      if (heroPainted) start();
+    });
+    observer.observe({ type: 'largest-contentful-paint', buffered: true });
+  } else if (document.readyState === 'complete') {
+    start();
+  } else {
+    window.addEventListener('load', start);
+  }
 }
