@@ -5,6 +5,7 @@ import { renderPagination } from './pagination';
 import { scrollToIfHidden } from './scroll-to';
 
 const tablet = window.matchMedia('(min-width: 768px)');
+const START_TIMEOUT = 3000;
 
 const state = {
   view: 'categories',
@@ -25,7 +26,7 @@ function pageSize() {
 function categoryMarkup({ name, filter, imgURL }) {
   return `<li>
     <button class="category-card" type="button" data-category="${name}">
-      <img class="category-img" src="${imgURL}" alt="" loading="lazy" width="290" height="242" />
+      <img class="category-img" src="${imgURL}" alt="" loading="lazy" fetchpriority="low" decoding="async" width="290" height="242" />
       <span class="category-name">${name}</span>
       <span class="category-filter">${filter}</span>
     </button>
@@ -205,5 +206,23 @@ export function initCatalog() {
     load();
   });
 
-  load();
+  startAfterPageLoad();
+}
+
+function startAfterPageLoad() {
+  let timer = null;
+
+  function start() {
+    clearTimeout(timer);
+    window.removeEventListener('load', start);
+    if (lastRequest === 0) load();
+  }
+
+  if (document.readyState === 'complete') {
+    start();
+    return;
+  }
+
+  window.addEventListener('load', start);
+  timer = setTimeout(start, START_TIMEOUT);
 }
