@@ -5,6 +5,7 @@ import { renderPagination } from './pagination';
 import { scrollToIfHidden } from './scroll-to';
 
 const tablet = window.matchMedia('(min-width: 768px)');
+const START_TIMEOUT = 3000;
 
 const state = {
   view: 'categories',
@@ -205,9 +206,23 @@ export function initCatalog() {
     load();
   });
 
-  if (document.readyState === 'complete') {
-    load();
-  } else {
-    window.addEventListener('load', () => load(), { once: true });
+  startAfterPageLoad();
+}
+
+function startAfterPageLoad() {
+  let timer = null;
+
+  function start() {
+    clearTimeout(timer);
+    window.removeEventListener('load', start);
+    if (lastRequest === 0) load();
   }
+
+  if (document.readyState === 'complete') {
+    start();
+    return;
+  }
+
+  window.addEventListener('load', start);
+  timer = setTimeout(start, START_TIMEOUT);
 }
