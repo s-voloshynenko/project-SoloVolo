@@ -14,8 +14,8 @@ function updateFavoriteButton() {
   refs.favoriteLabel.textContent = saved
     ? 'Remove from favorites'
     : 'Add to favorites';
-  refs.favoriteAdd.hidden = saved;
-  refs.favoriteRemove.hidden = !saved;
+  refs.favoriteAdd.toggleAttribute('hidden', saved);
+  refs.favoriteRemove.toggleAttribute('hidden', !saved);
 }
 
 function render(data) {
