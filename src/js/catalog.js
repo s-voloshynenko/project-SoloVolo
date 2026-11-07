@@ -2,6 +2,7 @@ import { getExercises, getFilters } from './api';
 import { notifyError } from './notify';
 import { exerciseCard } from './exercise-card';
 import { renderPagination } from './pagination';
+import { scrollToIfHidden } from './scroll-to';
 
 const tablet = window.matchMedia('(min-width: 768px)');
 
@@ -35,7 +36,7 @@ function showEmpty(message) {
   refs.empty.hidden = !message;
 }
 
-async function load() {
+async function load({ scroll = false } = {}) {
   const isCategories = state.view === 'categories';
 
   try {
@@ -76,6 +77,8 @@ async function load() {
       page: state.page,
       totalPages: Number(data.totalPages),
     });
+
+    if (scroll) scrollToIfHidden(refs.head);
   } catch (error) {
     refs.categories.innerHTML = '';
     refs.exercises.innerHTML = '';
@@ -107,7 +110,7 @@ function showCategories() {
   state.page = 1;
   resetSearch();
   setHeading();
-  load();
+  load({ scroll: true });
 }
 
 function showExercises(category) {
@@ -116,7 +119,7 @@ function showExercises(category) {
   state.page = 1;
   resetSearch();
   setHeading();
-  load();
+  load({ scroll: true });
 }
 
 function setActiveFilter(button) {
@@ -138,6 +141,7 @@ export function initCatalog() {
     label: document.querySelector('[data-category-label]'),
     search: document.querySelector('[data-search-form]'),
     clear: document.querySelector('[data-search-clear]'),
+    head: document.querySelector('[data-catalog-head]'),
   };
 
   if (!refs.filters || !refs.categories) return;
@@ -162,7 +166,7 @@ export function initCatalog() {
     event.preventDefault();
     state.keyword = refs.search.elements.keyword.value.trim();
     state.page = 1;
-    load();
+    load({ scroll: true });
   });
 
   refs.search.elements.keyword.addEventListener('input', event => {
@@ -175,7 +179,7 @@ export function initCatalog() {
     refs.search.elements.keyword.focus();
     if (hadKeyword) {
       state.page = 1;
-      load();
+      load({ scroll: true });
     }
   });
 
@@ -187,7 +191,7 @@ export function initCatalog() {
     if (page === state.page) return;
 
     state.page = page;
-    load();
+    load({ scroll: true });
   });
 
   tablet.addEventListener('change', () => {

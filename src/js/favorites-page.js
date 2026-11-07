@@ -1,6 +1,7 @@
 import { exerciseCard } from './exercise-card';
 import { getFavorites, removeFavorite } from './favorites-store';
 import { renderPagination } from './pagination';
+import { scrollToIfHidden } from './scroll-to';
 
 const tablet = window.matchMedia('(min-width: 768px)');
 const desktop = window.matchMedia('(min-width: 1440px)');
@@ -13,7 +14,7 @@ function pageSize() {
   return tablet.matches ? 10 : 8;
 }
 
-function render() {
+function render({ scroll = false } = {}) {
   const favorites = getFavorites();
   const size = pageSize();
   const totalPages = Number.isFinite(size)
@@ -31,6 +32,8 @@ function render() {
   refs.list.hidden = favorites.length === 0;
   refs.empty.hidden = favorites.length > 0;
   renderPagination(refs.pagination, { page, totalPages });
+
+  if (scroll) scrollToIfHidden(refs.list);
 }
 
 export function initFavoritesPage() {
@@ -51,7 +54,7 @@ export function initFavoritesPage() {
     const button = event.target.closest('[data-page]');
     if (!button) return;
     page = Number(button.dataset.page);
-    render();
+    render({ scroll: true });
   });
 
   document.addEventListener('favorites:change', render);

@@ -52,6 +52,10 @@
   margin-top: 40px;
 }
 
+.favorites-list {
+  scroll-margin-top: 20px;
+}
+
 .favorites-empty {
   font-size: 14px;
   line-height: 1.29;
