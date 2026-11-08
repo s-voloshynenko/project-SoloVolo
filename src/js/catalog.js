@@ -220,6 +220,7 @@ function supportsLcp() {
 function startAfterHeroPaint() {
   let started = false;
   let observer = null;
+  let heroWatcher = null;
   let timer = null;
 
   function start() {
@@ -227,11 +228,25 @@ function startAfterHeroPaint() {
     started = true;
     clearTimeout(timer);
     observer?.disconnect();
+    heroWatcher?.disconnect();
     window.removeEventListener('load', start);
     if (lastRequest === 0) load();
   }
 
   timer = setTimeout(start, START_TIMEOUT);
+
+  // after a refresh the page can open scrolled down, so the hero never paints
+  const hero = document.querySelector('.hero-img');
+  if (!hero) {
+    start();
+    return;
+  }
+  if (window.IntersectionObserver) {
+    heroWatcher = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting) start();
+    });
+    heroWatcher.observe(hero);
+  }
 
   if (supportsLcp()) {
     observer = new PerformanceObserver(list => {
