@@ -174,6 +174,7 @@
   .exercise-modal-body {
     display: grid;
     grid-template-columns: 270px minmax(0, 1fr);
+    grid-template-rows: 1fr auto;
     gap: 32px;
     min-height: 486px;
     padding: 32px;
@@ -185,11 +186,6 @@
 
   .exercise-modal-body:has(.exercise-media[hidden]) {
     grid-template-columns: minmax(0, 1fr);
-  }
-
-  .exercise-info {
-    display: flex;
-    flex-direction: column;
   }
 
   .exercise-modal-title {
@@ -207,14 +203,10 @@
   }
 
   .exercise-actions {
+    grid-column: 1 / -1;
     flex-direction: row;
-    gap: 8px;
-    margin-top: auto;
-    padding-top: 40px;
-  }
-
-  .exercise-actions:has(.is-saved) {
-    flex-wrap: wrap;
+    justify-content: flex-end;
+    margin-top: 0;
   }
 
   .exercise-actions .btn {
